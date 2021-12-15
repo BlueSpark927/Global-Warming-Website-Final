@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+{% load static %}
+<html>
+	<head>
+		<title>Rising Temperatures in the United States</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="shortcut icon" href="{% static 'images/Website-logo.png' %}">
+		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+		<noscript><link rel="stylesheet" href="{% static 'assets/css/noscript.css' %}" /></noscript>
+	</head>
+	<body class="is-preload">
+
+			<header id="header">
+				<a class="image"><a href="javascript:history.back()"></a><img src="{% static 'images/Website logo.png' %}" width="68" height="65"></a>
+				<h1 class="title">Rising Temperatures in the United States by Year</h1>
+				<nav>
+					<ul>
+						<li><a href="../">Home</a></li>
+						<li><a href="../Graph1/">Rising Temperatures in the United States by Month</a></li>
+						<li><a href = "https://wonder.cdc.gov/nasa-nldas.html">CDC: (NLDAS)</a></li>
+					</ul>
+				</nav>
+			</header>
+
+
+			<div id="wrapper">
+
+					<section id="main" class="wrapper style2-alt">
+						{% block content %}
+						{% load plotly_dash %}
+					
+						<div class="{% plotly_class name='Max_App2' %} card" style="height: 100%; width: 100%">
+						{% plotly_app name='Max_App2' ratio=0.45 %}
+						</div>
+						{{ plot1 | safe }}
+					
+
+
+						</div>
+					</section>
+
+					<section id="main" class="wrapper style2-alt">
+
+						{% load plotly_dash %}
+					
+						<div class="{% plotly_class name='Min_App2' %} card" style="height: 100%; width: 100%">
+						{% plotly_app name='Min_App2' ratio=0.45 %}
+						</div>
+						{{ plot1 | safe }}
+					
+						</div>
+					</section>
+
+			</div>
+					<section id="main" class="wrapper style2-alt">
+
+						{% load plotly_dash %}
+					
+						<div class="{% plotly_class name='Chart_App2' %} card" style="height: 100%; width: 100%">
+						{% plotly_app name='Chart_App2' ratio=0.45 %}
+						</div>
+						{{ plot1 | safe }}
+					
+						{% endblock %}
+
+						</div>
+					</section>
+
+
+			<footer id="footer" class="wrapper alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; Anson, Maimuna, Zainab</li>
+					</ul>
+				</div>
+			</footer>
+
+			<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'assets/js/jquery.scrollex.min.js' %}"></script>
+			<script src="{% static 'assets/js/jquery.scrolly.min.js' %}"></script>
+			<script src="{% static 'assets/js/browser.min.js' %}"></script>
+			<script src="{% static 'assets/js/breakpoints.min.js' %}"></script>
+			<script src="{% static 'assets/js/util.js' %}"></script>
+			<script src="{% static 'assets/js/main.js' %}"></script>
+
+	</body>
+</html>
